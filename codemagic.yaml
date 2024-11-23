@@ -1,0 +1,13 @@
+workflows:
+  ios-workflow:
+    name: Build iOS App
+    environment:
+      groups:
+        - apple-signing
+    scripts:
+      - name: Install CocoaPods
+        script: pod install
+      - name: Build App
+        script: xcodebuild -workspace "CashAppClone.xcworkspace" -scheme "CashAppClone" -sdk iphoneos -configuration Release archive -archivePath $CM_BUILD_DIR/CashAppClone.xcarchive
+      - name: Export IPA
+        script: xcodebuild -exportArchive -archivePath $CM_BUILD_DIR/CashAppClone.xcarchive -exportOptionsPlist exportOptions.plist -exportPath $CM_BUILD_DIR
