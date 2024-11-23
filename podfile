@@ -1,7 +1,9 @@
 platform :ios, '11.0'
 
+# Specify the Xcode project file
+project 'CashAppClone.xcodeproj'
+
 target 'CashAppClone' do
   use_frameworks!
-  # Example dependency (add more if needed):
-  # pod 'Alamofire', '~> 5.4'
+  # Add your dependencies below
 end
